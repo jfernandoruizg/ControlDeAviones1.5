@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Theme The Band</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-notificaciones de - devise>
+<p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+</head>
+<body>
+<div class="container-fluid">                                                   <!-Inicio del container de la barra y el slider->
+<!-Creacion del carrusel ->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img style="width:300px;height:175px;border:0;" class=img-circle person""<%= image_tag "1.jpg"%>
+      <div class="carousel-caption">
+        <h3>New York</h3>
+        <p>The atmosphere in New York is lorem ipsum.</p>
+      </div>
+    </div>
+
+    <div class="item">
+
+      <img style="width:300px;height:175px;border:0;" class=img-circle person""<%= image_tag "0.jpg"%>
+      <div class="carousel-caption">
+        <h3>Chicago</h3>
+        <p>Thank you, Chicago - A night we won't forget.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img style="width:300px;height:175px;border:0;" class="img-circle person"<%= image_tag "4.jpg"%>
+      <div class="carousel-caption">
+        <h3>LA</h3>
+        <p>Even though the traffic was a mess, we had the best time.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<!-Creacion del menu superior->
+<nav class="navbar navbar-invert" role="navigation">
+  <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Desplegar navegación</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">AeroApp</a>
+  </div>
+
+  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+       otro elemento que se pueda ocultar al minimizar la barra -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Buscar">
+      </div>
+      <button type="submit" class="btn btn-default">Enviar</button>
+    </form>
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Flota De Aviones<b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="users/sign_up">Ingresar</a></li>
+          <li><a href="users/sign_in">Mostrar</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
+
+<p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+</p>                                                                   <!-Fin Del container donde esta la barra y el slider->
+<!- Contenedor central->
+
+<div class="container">                                                          <!-Inicio de l container donde estan las imagenes en circulos y los botones con imagen->
+<div class="container text-center">
+
+  <img  style="border:100;" wclass="img-responsive"<%= image_tag "bienvenido.webp"%>
+  <h3>Viaja con nosotros tu experiencia será única</h3>
+  <p><em>Aeropuerto </em></p>
+  <p>We have created a fictional band website. Lorem ipsum..</p>
+  <br>
+  <div class="row">
+    <div class="col-sm-4">
+      <p><strong>Name</strong></p><br>
+      <img style="width:300px;height:175px;border:0;" class=img-circle person""<%= image_tag "1.jpg"%>
+
+
+    </div>
+    <div class="col-sm-4">
+      <p><strong>¿Qué es AeroApp?</strong></p><br>
+         <img class="img-circle person"<%= image_tag "0.jpg"%>
+    </div>
+    <div class="col-sm-4">
+      <p><strong>Name</strong></p><br>
+           <img style="width:300px;height:175px;border:0;" class="img-circle person" <%= image_tag "4.jpg"%>
+    </div>
+  </div>
+</div>
+<!- imagenes con bootones->
+<div class="row text-center">
+  <div class="col-sm-4">
+    <div class="thumbnail">
+      <img <%= image_tag "paris.jpg"%>
+
+      <p><strong>Paris</strong></p>
+      <p>Está situada a ambos márgenes de un largo meandro del río Sena, en el centro de la cuenca parisina, entre la confluencia del río Marne y el Sena, aguas arriba, y el Oise y el Sena, aguas abajo.</p>
+      <button class="btn">Buy Tickets</button>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="thumbnail">
+      <img <%= image_tag "newyork.jpg"%>
+      <p><strong>New York</strong></p>
+      <p>La ciudad también es la cuna de muchos movimientos culturales estadounidenses, como por ejemplo el renacimiento de Harlem</p>
+<!--los p solo los ocupo para poder acomodar los container de las imganes-->
+      <p> </p>
+        <p> </p>
+      <button class="btn">Buy Tickets</button>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="thumbnail">
+        <img <%= image_tag "sanfran.jpg"%>
+
+      <p><strong>San Francisco</strong></p>
+      <p>La ciudad de San Francisco fue fundada por colonos españoles en 1776. Construyeron un fuerte en lo que hoy es el Golden Gate y fundaron una misión llamada así en honor de Francisco de Asís.10​</p>
+      <button class="btn">Buy Tickets</button>
+    </div>
+  </div>
+</div>                                                                            <!-fin Inicio de l container donde estan las imagenes en circulos y los botones con imagen->
+<!- contenedor de compras->
+<div class="bg-1">
+  <div class="container ">
+    <h3 class="text-center">Proximamente compra de boleton en linea</h3>
+    <p class="text-center">Estaremos ofreciendo la compro de su boleto desde nuestro pagina.
+      <br> Recuerde darnos like en nuestra pagina de facebook!</p>
+  </div>
+</div>
+</div>
+<!-Creacion de contenedor de contacto->
+<div class="container">
+  <h3 class="color1">Contactenos</h3>
+  <p class="color1"><em>Le atenderemos en la brevedad posible</em></p>
+  <div class="row test">
+    <div class="col-md-4">
+      <p>Fan? Drop a note.</p>
+      <p><span  class="color1"></span> Masaya , Nicaragua</p>
+      <p><span class="glyphicon glyphicon-phone" </span> Celular: +505-77664638</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> Email: ferb2013ruiz@gmail.com</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
