@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Theme The Band</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-notificaciones de - devise>
+<p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+</head>
+<body>
+<div class="container-fluid">                                                   <!-Inicio del container de la barra y el slider->
+<!-Creacion del carrusel ->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img style="width:300px;height:175px;border:0;" class=img-circle person""<%= image_tag "1.jpg"%>
+      <div class="carousel-caption">
+        <h3>New York</h3>
+        <p>The atmosphere in New York is lorem ipsum.</p>
+      </div>
+    </div>
+
+    <div class="item">
+
+      <img style="width:300px;height:175px;border:0;" class=img-circle person""<%= image_tag "0.jpg"%>
+      <div class="carousel-caption">
+        <h3>Chicago</h3>
+        <p>Thank you, Chicago - A night we won't forget.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img style="width:300px;height:175px;border:0;" class="img-circle person"<%= image_tag "4.jpg"%>
+      <div class="carousel-caption">
+        <h3>LA</h3>
+        <p>Even though the traffic was a mess, we had the best time.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<!-Creacion del menu superior->
+<nav class="navbar navbar-invert" role="navigation">
+  <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Desplegar navegación</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">AeroApp</a>
+  </div>
+
+  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+       otro elemento que se pueda ocultar al minimizar la barra -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Buscar">
+      </div>
+      <button type="submit" class="btn btn-default">Enviar</button>
+    </form>
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Flota De Aviones<b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="users/sign_up">Ingresar</a></li>
+          <li><a href="users/sign_in">Mostrar</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>                                                    <!-Fin Del container donde esta la barra y el slider->
+
+<div class="container-fluid">
+
+  <p class="navbar-text pull-right">
+  <% if user_signed_in? %>
+    Logged in as <strong><%= current_user.email %></strong>.
+    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+  <% end %>
+  </p>
+<div class="well">
+
+<%= form_with(model: avion, local: true) do |form| %>
+  <% if avion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(avion.errors.count, "error") %> prohibited this avion from being saved:</h2>
+
+      <ul>
+      <% avion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :matricula %>
+    <%= form.text_field :matricula, id: :avion_matricula %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombspilot %>
+    <%= form.text_field :nombspilot, id: :avion_nombspilot %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apellspilot %>
+    <%= form.text_field :apellspilot, id: :avion_apellspilot %>
+  </div>
+
+  <div class="field">
+    <%= form.label :destino %>
+    <%= form.text_field :destino, id: :avion_destino %>
+  </div>
+
+  <div class="field">
+    <%= form.label :origen %>
+    <%= form.text_field :origen, id: :avion_origen %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hsalidao %>
+    <%= form.time_select :hsalidao, id: :avion_hsalidao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fsalidao %>
+    <%= form.date_select :fsalidao, id: :avion_fsalidao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hllegadadestino %>
+    <%= form.time_select :hllegadadestino, id: :avion_hllegadadestino %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fllegadadestino %>
+    <%= form.date_select :fllegadadestino, id: :avion_fllegadadestino %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>
+</div>
+
+<!- Contenedor negro inferior->
+
+<div class="bg-1">
+  <div class="container ">
+    <h3 class="text-center">Proximamente compra de boleton en linea</h3>
+    <p class="text-center">Estaremos ofreciendo la compro de su boleto desde nuestro pagina.
+      <br> Recuerde darnos like en nuestra pagina de facebook!</p>
+  </div>
+</div>
+</div>
+
+
+</body>
+</html>

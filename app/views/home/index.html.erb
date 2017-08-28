@@ -13,6 +13,11 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-notificaciones de - devise>
+<p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
 </head>
 <body>
 <div class="container-fluid">                                                   <!-Inicio del container de la barra y el slider->
@@ -89,13 +94,13 @@
     </form>
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Iniciar Sesión</a></li>
+
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Aerolineas<b class="caret"></b>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personal<b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
-          <li><a href="#">Nacionales</a></li>
-          <li><a href="#">Internacionales</a></li>
+          <li><a href="users/sign_up">Registrar</a></li>
+          <li><a href="users/sign_in">Inicar Sesión</a></li>
           <li class="divider"></li>
           <li><a href="#">Equipaje</a></li>
         </ul>
@@ -103,15 +108,26 @@
     </ul>
   </div>
 </nav>
-</div>                                                                          <!-Fin Del container donde esta la barra y el slider->
+</div>
+
+<p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+</p>                                                                   <!-Fin Del container donde esta la barra y el slider->
 <!- Contenedor central->
 
 <div class="container">                                                          <!-Inicio de l container donde estan las imagenes en circulos y los botones con imagen->
 <div class="container text-center">
 
-  <img <%= image_tag "bienvenido.webp"%>
-  <h3>THE BAND</h3>
-  <p><em>We love music!</em></p>
+  <img  style="border:100;" wclass="img-responsive"<%= image_tag "bienvenido.webp"%>
+  <h3>Viaja con nosotros tu experiencia será única</h3>
+  <p><em>Aeropuerto </em></p>
   <p>We have created a fictional band website. Lorem ipsum..</p>
   <br>
   <div class="row">
