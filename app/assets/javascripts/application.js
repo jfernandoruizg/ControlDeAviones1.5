@@ -13,3 +13,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery.js
+//= require unslider.js
+//= require functions.js
